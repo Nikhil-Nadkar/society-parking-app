@@ -3,10 +3,12 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_file=".env", env_file_encoding="utf-8", extra="ignore"
+    )
 
     # Database
-    DATABASE_URL: str = "mysql+pymysql://parking_user:parking_pass@localhost:3306/society_parking"
+    DATABASE_URL: str
 
     # JWT
     JWT_SECRET_KEY: str = "change_this_to_a_long_random_secret"
